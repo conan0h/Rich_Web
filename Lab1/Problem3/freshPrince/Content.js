@@ -10,7 +10,8 @@ let freshImages = [
 const imgs = document.getElementsByTagName("img");
 for(let i = 0; i < imgs.length; i++) {
     const randomImg = Math.floor(Math.random() * freshImages.length)
-    imgs[i].src = freshImages[randomImg]
+    imgs[i].src = freshImages[randomImg];
+	imgs[i].srcset = freshImages[randomImg];
 }
 //do the same for h1 elements
 const headers1 = document.getElementsByTagName("h1");
@@ -20,7 +21,7 @@ for (let i = 0; i < headers1.length; i++){
 
 const headers2 = document.getElementsByTagName("h2");
 for (let i = 0; i < headers2.length; i++){
-    headers2[i].innerText = "of Bel-Air";
+    headers2[i].innerText = "Prince of Bel-Air";
 }
 
 const headers3 = document.getElementsByTagName("h3");
@@ -35,7 +36,7 @@ for (let i = 0; i < headers4.length; i++){
 
 const li = document.getElementsByTagName("li");
 for (let i = 0; i < li.length; i++){
-    li[i].innerText = "of Bel-Air";
+    li[i].innerText = "Sent me off to live with my uncle";
 }
 
 //do the same for p elements
@@ -94,6 +95,8 @@ for (let i = 0; i < b.length; i++){
 //do the same for a elements
 const a = document.getElementsByTagName("a");
 for (let i = 0; i < a.length; i++){
-    a[i].src = "https://www.youtube.com/embed/1nCqRmx3Dnw?si=jv6m_7gEooidbUqV";
-    a[i].innerHTML = "Shooting some b-ball";
+	
+	
+    //a[i].src = "https://www.youtube.com/embed/1nCqRmx3Dnw?si=jv6m_7gEooidbUqV";
+    //a[i].innerHTML = "Shooting some b-ball";
 }
