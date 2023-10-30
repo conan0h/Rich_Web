@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <div id="container">
+
+    <div id="search_container">
+      <label for="username"></label>
+      <input type="text" id="username" placeholder="Enter GitHub Username">
+      <button id="search">Search</button>
+    </div>
+
+      <h1>User Profile</h1>
+
+      <div id="left_container">
+        <div id="image_container">
+          <img id="avatar" src="" alt="User Avatar">
+        </div>
+        <div id="userInfo_container">
+          <div class="info-section">
+              <h2 id="name"></h2>
+              <p id="username-info"></p>
+              <p id="email"></p>
+              <p id="location"></p>
+              <p id="gists"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="right_container">
+        <h3>User Repositories</h3>
+        <div id="repo_container">
+          <div class="info-section">
+              <div id="repo-list"></div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
