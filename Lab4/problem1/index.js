@@ -1,20 +1,25 @@
 const { useState } = React;
 
-const Note = ({ text, color }) => {
+const Note = ({ text, color, onDelete }) => {
   const style = {
     backgroundColor: color,
-    padding: '10px',
-    margin: '5px',
-    borderRadius: '5px',
+    padding: "10px",
+    margin: "5px",
+    borderRadius: "5px",
   };
 
-  return <div style={style}>{text}</div>;
+  return (
+    <div style={style}>
+      <div dangerouslySetInnerHTML={{ __html: text }} />
+      <button onClick={onDelete}>Delete</button>
+    </div>
+  );
 };
 
 const App = () => {
   console.log("React app is working!");
-  const [noteText, setNoteText] = useState('');
-  const [noteColor, setNoteColor] = useState('red');
+  const [noteText, setNoteText] = useState("");
+  const [noteColor, setNoteColor] = useState("red");
   const [notes, setNotes] = useState([]);
 
   const handleNoteChange = (event) => {
@@ -28,15 +33,21 @@ const App = () => {
   const handleCreateNote = (event) => {
     event.preventDefault();
 
-    if (noteText.trim() !== '') {
+    if (noteText.trim() !== "") {
       const newNote = {
         text: noteText,
         color: noteColor,
       };
 
       setNotes([...notes, newNote]);
-      setNoteText('');
+      setNoteText("");
     }
+  };
+
+  const handleDeleteNote = (index) => {
+    const newNotes = [...notes];
+    newNotes.splice(index, 1);
+    setNotes(newNotes);
   };
 
   return (
@@ -60,7 +71,7 @@ const App = () => {
           className="color_option"
           name="color_option"
           value="red"
-          checked={noteColor === 'red'}
+          checked={noteColor === "red"}
           onChange={handleColorChange}
         />
         <label htmlFor="blue_option">Blue</label>
@@ -70,7 +81,7 @@ const App = () => {
           className="color_option"
           name="color_option"
           value="blue"
-          checked={noteColor === 'blue'}
+          checked={noteColor === "blue"}
           onChange={handleColorChange}
         />
         <label htmlFor="yellow_option">Yellow</label>
@@ -80,7 +91,7 @@ const App = () => {
           className="color_option"
           name="color_option"
           value="yellow"
-          checked={noteColor === 'yellow'}
+          checked={noteColor === "yellow"}
           onChange={handleColorChange}
         />
         <label htmlFor="green_option">Green</label>
@@ -90,7 +101,7 @@ const App = () => {
           className="color_option"
           name="color_option"
           value="green"
-          checked={noteColor === 'green'}
+          checked={noteColor === "green"}
           onChange={handleColorChange}
         />
       </form>
@@ -103,7 +114,12 @@ const App = () => {
       <div className="output_container">
         <div className="note_container">
           {notes.map((note, index) => (
-            <Note key={index} text={note.text} color={note.color} />
+            <Note
+              key={index}
+              text={note.text}
+              color={note.color}
+              onDelete={() => handleDeleteNote(index)}
+            />
           ))}
         </div>
       </div>
@@ -111,4 +127,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(React.createElement(App), document.getElementById('output'));
+ReactDOM.render(React.createElement(App), document.getElementById("output"));

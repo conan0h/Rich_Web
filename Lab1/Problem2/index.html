@@ -1,63 +1,62 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
+  <title>Note-Taking Application</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-<div class="container">
-  <div class="input_container">
+  <div class="container">
+    <div class="input_container">
       <h1>Note-Taking Application</h1>
-        <form>
-          <label for="note_input"></label>
-          <textarea id="note_input" class="note_input" rows="20" cols="50"></textarea>
-          <br>
-          <label for="red_option">Red</label>
-          <input type="radio" id="red_option" class="color_option" name="color_option" value="red" checked="checked" />
-          <label for="blue_option">Blue</label>
-          <input type="radio" id="blue_option" class="color_option" name="color_option" value="blue" />
-          <label for="yellow_option">Yellow</label>
-          <input type="radio" id="yellow_option" class="color_option" name="color_option" value="yellow"/>
-          <label for="green_option">Green</label>
-          <input type="radio" id="green_option" class="color_option" name="color_option" value="green" />
-        </form>
+      <form>
+        <label for="note_input"></label>
+        <textarea id="note_input" class="note_input" rows="20" cols="50"></textarea>
+        <br>
+        <label for="red_option">Red</label>
+        <input type="radio" id="red_option" class="color_option" name="color_option" value="red" checked="checked" />
+        <label for="blue_option">Blue</label>
+        <input type="radio" id="blue_option" class="color_option" name="color_option" value="blue" />
+        <label for="yellow_option">Yellow</label>
+        <input type="radio" id="yellow_option" class="color_option" name="color_option" value="yellow" />
+        <label for="green_option">Green</label>
+        <input type="radio" id="green_option" class="color_option" name="color_option" value="green" />
+      </form>
       <br>
       <button class="btn">Create note</button>
+    </div>
+    <h2>Created Notes</h2>
+    <div class="output_container">
+      <div class="note_container"></div>
+    </div>
   </div>
-  <h2>Created Notes</h2>
-  <div class="output_container">
-    <div class="note_container"></div>
-  </div>
-</div>
 
+  <div id="output"></div>
+
+  <!-- React and ReactDOM from CDN -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Your custom scripts -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" type="text/babel"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+
+  <!-- Your custom script here -->
+  <script type="text/babel">
+  const getMessage = () => "Hello World";
+  document.getElementById('output').innerHTML = getMessage();
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
 </body>
 
 </html>
